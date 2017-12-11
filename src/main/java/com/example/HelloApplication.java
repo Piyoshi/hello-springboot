@@ -7,8 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class HelloApplication implements CommandLineRunner {
+	private final GreetingService greetingService;
+
 	@Autowired
-	private GreetingService greetingService;
+	public HelloApplication(GreetingService greetingService) {
+		this.greetingService = greetingService;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(HelloApplication.class, args);
